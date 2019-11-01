@@ -17,7 +17,7 @@ var routes = require('./routes/routes.js');
 app.set('port', process.env.PORT || 8000);
 switch (process.env.ENV){
    case 'DEV': 
-	msg = 'Unleash the power of our people'
+	msg = 'Unleash the power of our people - DEV'
 	break;
    case 'TEST':
 	msg = 'Show respect, humility and integrity'
@@ -26,7 +26,7 @@ switch (process.env.ENV){
 	msg = 'Learn from challenge and change'
         break;
    case 'PROD':
-	msg = 'Have fun while being the best'
+	msg = 'Have fun while being the best - PROD'
 	break;
     default:
 	msg = 'Environment not defined'
