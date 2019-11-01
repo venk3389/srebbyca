@@ -1,0 +1,35 @@
+{
+  "containerDefinitions": [
+    {
+      "portMappings": [
+        {
+          "hostPort": 7002,
+          "protocol": "tcp",
+          "containerPort": 7002
+        }
+      ],
+      "environment": [
+        {
+          "name": "ENV",
+          "value": "DR"
+        },
+        {
+          "name": "PORT",
+          "value": "7002"
+        }
+      ],
+      "image": "542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app:latest",
+      "essential": true,
+      "name": "dr-srebbyca"
+    }
+  ],
+  "memory": "128",
+  "family": "task-dr-srebbyca",
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "networkMode": null,
+  "cpu": "128",
+  "proxyConfiguration": null,
+  "volumes": []
+}

@@ -5,7 +5,7 @@ Description: Template to create an EC2 instance and enable SSH
 Parameters: 
   KeyName:
     Description: Name of SSH KeyPair
-    Type: 'AWS::EC2::KeyPair::mykeypair'
+    Type: String
     ConstraintDescription: Provide the name of an existing SSH key pair
 
 Resources:
@@ -13,7 +13,7 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Properties:
       InstanceType: t2.micro
-      ImageId: ami-0bdb1d6c15a40392c
+      ImageId: ami-0c076388333fe875e
       KeyName: !Ref KeyName
       SecurityGroups:
        - Ref: InstanceSecurityGroup
