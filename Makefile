@@ -1,7 +1,8 @@
 
-CLUSTER=$(if ${ENV},$(shell echo ${ENV} | tr '[:upper:]' '[:lower:]'),dev)
+env_lower=$(shell echo ${ENV} | tr '[:upper:]' '[:lower:]')
+CLUSTER=$(if ${ENV},${env_lower},dev)
 APP=${CLUSTER}-srebbyca
-IMAGE=542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app/${ENV}-web-app:latest
+IMAGE=542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app/${env_lower}-web-app:latest
 
 run:
 	docker run -d -e "ENV=$(ENV)" -e "PORT=$(PORT)" -p $(PORT):$(PORT) --name=$(APP) $(IMAGE)
