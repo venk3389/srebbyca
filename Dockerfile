@@ -8,7 +8,6 @@ RUN npm install
 
 COPY . .
 
-
 CMD [ "node", "bestbuy.ca.js" ]
 
 
