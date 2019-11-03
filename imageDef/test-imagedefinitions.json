@@ -1,6 +1,6 @@
 [
   {
     "name": "test-srebbyca",
-    "imageUri": "542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app:latest"
+    "imageUri": "542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app:test-latest"
   }
 ]

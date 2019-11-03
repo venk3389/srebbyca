@@ -3,28 +3,28 @@
     {
       "portMappings": [
         {
-          "hostPort": 7002,
+          "hostPort": 7000,
           "protocol": "tcp",
-          "containerPort": 7002
+          "containerPort": 7000
         }
       ],
       "environment": [
         {
           "name": "ENV",
-          "value": "DR"
+          "value": "DEV"
         },
         {
           "name": "PORT",
-          "value": "7002"
+          "value": "7000"
         }
       ],
-      "image": "542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app:dr-latest",
+      "image": "542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app:dev-latest",
       "essential": true,
-      "name": "dr-srebbyca"
+      "name": "dev-srebbyca"
     }
   ],
   "memory": "128",
-  "family": "task-dr-srebbyca",
+  "family": "task-dev-srebbyca",
   "requiresCompatibilities": [
     "EC2"
   ],

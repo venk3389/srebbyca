@@ -16,7 +16,7 @@ phases:
     # update the following line with your own region
     - $(aws ecr get-login --no-include-email --region us-east-2) 
     # start the docker container with image generated from the build step
-    - ENV=dev make release
+    - make test
   
   build: 
     commands: 
@@ -27,7 +27,7 @@ phases:
 
   post_build: 
     commands: 
-    - ENV=dev make finish    
+    - make clean    
     - echo Test completed on `date` 
     
 #artifacts: 
