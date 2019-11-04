@@ -19,7 +19,7 @@ Resources:
        - Ref: InstanceSecurityGroup
       Tags:
         - Key: Name
-          Value: My CF Instance
+          Value: Nodejscluster
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:

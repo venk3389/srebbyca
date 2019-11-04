@@ -1,24 +1,12 @@
 
-CLUSTER=$(if ${ENV},${ENV},dev)
-version=$(shell git rev-parse --short HEAD)
+env_lower=$(shell echo ${ENV} | tr '[:upper:]' '[:lower:]')
+CLUSTER=$(if ${ENV},${env_lower},dev)
 APP=${CLUSTER}-srebbyca
-tag:
-	docker tag node-webapp:$(version) node-webapp:latest
+IMAGE=542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app:${env_lower}-latest
 
-build:
-	docker build -t node-webapp:$(version) .
+run:
+	docker run -d -e "ENV=$(ENV)" -e "PORT=$(PORT)" -p $(PORT):$(PORT) --name=$(APP) $(IMAGE)
 
-run-prod: stop-prod cleanup
-	docker run -d -e "ENV=PROD" -e "PORT=8000" -p 8000:8000 --name=$(APP) node-webapp:$(version)
-
-run-dev: stop cleanup
-	docker run -d -e "ENV=DEV" -e "PORT=7000" -p 7000:7000 --name=$(APP) node-webapp:$(version)
-
-run-dr: stop cleanup
-	docker run -d -e "ENV=DR" -e "PORT=7002" -p 7002:7002 --name=$(APP) node-webapp:$(version)
-
-run-test: stop cleanup
-	docker run -d -e "ENV=TEST" -e "PORT=7001" -p 7001:7001 --name=$(APP) node-webapp:$(version)
 
 stop-all:
 	docker stop `sudo docker ps -q`
@@ -27,7 +15,11 @@ stop:
 cleanup:
 	docker rm -f $(APP)
 
-all: build tag run-$(CLUSTER)
+test: run
+
+release: run
+
+clean: stop cleanup
 
 
 

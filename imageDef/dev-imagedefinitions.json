@@ -1,0 +1,6 @@
+[
+  {
+    "name": "dev-srebbyca",
+    "imageUri": "542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app:dev-latest"
+  }
+]

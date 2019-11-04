@@ -1,0 +1,41 @@
+version: 0.2 
+ 
+#env: 
+  #variables: 
+     # key: "value" 
+     # key: "value" 
+  #parameter-store: 
+     # key: "value" 
+     # key: "value" 
+ 
+phases: 
+  pre_build: 
+    commands: 
+    - echo Logging in to Amazon ECR.... 
+    - aws --version
+    # update the following line with your own region
+    - $(aws ecr get-login --no-include-email --region us-east-2) 
+    # start the docker container with image generated from the build step
+    - make test
+  
+  build: 
+    commands: 
+    - echo Test started on `date` 
+    - echo Running test scripts... 
+    # Invoke the test script
+    - sh test/tests.sh
+
+  post_build: 
+    commands: 
+    - make clean    
+    - echo Test completed on `date` 
+    
+#artifacts: 
+    # - location 
+    # - location 
+  #discard-paths: yes 
+  #base-directory: location 
+#cache: 
+  #paths: 
+    # - paths 
+ 

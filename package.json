@@ -6,6 +6,8 @@
   "dependencies": {
     "ejs": "^2.7.1",
     "express": "^4.17.1",
-    "path": "^0.12.7"
+    "newman": "^4.5.5",
+    "path": "^0.12.7",
+    "postman": "^0.2.0"
   }
 }

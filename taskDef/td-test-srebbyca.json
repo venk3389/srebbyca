@@ -1,0 +1,35 @@
+{
+  "containerDefinitions": [
+    {
+      "portMappings": [
+        {
+          "hostPort": 7001,
+          "protocol": "tcp",
+          "containerPort": 7001
+        }
+      ],
+      "environment": [
+        {
+          "name": "ENV",
+          "value": "TEST"
+        },
+        {
+          "name": "PORT",
+          "value": "7001"
+        }
+      ],
+      "image": "542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app:test-latest",
+      "essential": true,
+      "name": "test-srebbyca"
+    }
+  ],
+  "memory": "128",
+  "family": "task-test-srebbyca",
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "networkMode": null,
+  "cpu": "128",
+  "proxyConfiguration": null,
+  "volumes": []
+}

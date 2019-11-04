@@ -18,7 +18,7 @@
           "value": "7002"
         }
       ],
-      "image": "542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app:latest",
+      "image": "542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app:dr-latest",
       "essential": true,
       "name": "dr-srebbyca"
     }

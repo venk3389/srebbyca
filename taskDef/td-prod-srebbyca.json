@@ -1,0 +1,35 @@
+{
+  "containerDefinitions": [
+    {
+      "portMappings": [
+        {
+          "hostPort": 8000,
+          "protocol": "tcp",
+          "containerPort": 8000
+        }
+      ],
+      "environment": [
+        {
+          "name": "ENV",
+          "value": "PROD"
+        },
+        {
+          "name": "PORT",
+          "value": "8000"
+        }
+      ],
+      "image": "542068092988.dkr.ecr.us-east-2.amazonaws.com/srebbyca/nodejs-app:prod-latest",
+      "essential": true,
+      "name": "prod-srebbyca"
+    }
+  ],
+  "memory": "128",
+  "family": "task-prod-srebbyca",
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "networkMode": null,
+  "cpu": "128",
+  "proxyConfiguration": null,
+  "volumes": []
+}
